@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="value==13" v-for="(value,key,index) in obj">{{value+'--'+key+'--'+index}}</div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var obj = {
+            uname: 'lisi',
+            age: 12,
+            gender: 'male'
+        }
+        for (var key in obj) {
+            console.log(key, obj[key]);
+
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                obj: {
+                    uname: 'lisi',
+                    age: 13,
+                    gender: 'male'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

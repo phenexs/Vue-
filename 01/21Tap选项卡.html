@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            border: 1px solid #ccc;
+            list-style: none;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        li.active {
+            background-color: red;
+            color: #fff;
+        }
+
+        .tab div {
+            width: 300px;
+            height: 300px;
+            display: none;
+        }
+
+        .tab div.current {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tab">
+            <ul>
+                <li v-for="(item,index) in list" :key="item.id" :class="currentIndex==index?'active':''" @click="change(index)">{{item.title}}</li>
+            </ul>
+            <div v-for="(item,index) in list" :key="item.id" :class="currentIndex==index?'current':''">
+                <img :src="item.path" alt="">
+            </div>
+        </div>
+
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                currentIndex:0,
+                list: [{
+                    id: 1,
+                    title: 'apple',
+                    path: 'img/apple.png'
+                }, {
+                    id: 2,
+                    title: 'orange',
+                    path: 'img/orange.png'
+                }, {
+                    id: 3,
+                    title: 'lemon',
+                    path: 'img/lemon.png'
+                }]
+            },
+            methods: {
+                change:function(index){
+                    this.currentIndex=index;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

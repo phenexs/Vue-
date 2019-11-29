@@ -6,14 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" v-cloak>
         {{message}}
     </div>
     <script src="./js/vue.js"></script>
     <script>
+        /*
+        v-cloak:解决插值表达式闪动问题
+            [v-cloak] {
+                display: none;
+            }
+
+            <div v-cloak>
+                {{ message }}
+            </div>
+        */
         var app = new Vue({
             el: '#app',
             data: {

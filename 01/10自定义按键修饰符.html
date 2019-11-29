@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义按键修饰符</title>
+</head>
+<body>
+        <div id="app">
+                <div>
+                    <input type="text" v-model="info" v-on:keyup.aaa="handle">
+                </div>
+            </div>
+        
+            <script src="./js/vue.js"></script>
+            <script>
+                Vue.config.keyCodes.aaa=32;
+                var app = new Vue({
+                    el: '#app',
+                    data: {
+                        info:''
+                    },
+                    methods: {
+                        handle:function(e){
+                            console.log(e.keyCode);
+                            
+                        }
+                    }
+                })
+            </script>
+</body>
+</html>

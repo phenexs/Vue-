@@ -5,15 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>双向数据绑定</title>
 </head>
 
 <body>
-    <div id="app">
-        {{message}}
+    <div id="app" v-cloak>
+        <div>{{message}}</div>
+        <div>
+            <input type="text" v-model="message">
+        </div>
     </div>
     <script src="./js/vue.js"></script>
     <script>
+        /*
+        双向：
+        用户更改的同时数据跟着变，
+        数据变内容跟着变
+        */
         var app = new Vue({
             el: '#app',
             data: {

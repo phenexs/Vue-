@@ -5,19 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>v-once</title>
 </head>
 
 <body>
-    <div id="app">
-        {{message}}
+    <div id="app" v-cloak>
+        <div>{{message}}</div>
+        <div v-once>{{info}}</div>
     </div>
     <script src="./js/vue.js"></script>
     <script>
+        /*
+        如果显示的信息后续不需要修改，可以使用v-once，可以提高性能
+        */
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'Hello Vue!'
+                message: 'Hello Vue!',
+                info:'您好'
             }
         })
     </script>
