@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{reversedMessage}}</div>
+        <div>{{reversedMessage}}</div>
+        <div>{{reversedStri()}}</div>
+        <div>{{reversedStri()}}</div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        /*
+        计算属性与方法的区别
+            计算属性有缓存，数据不变只计算一次，对比较复杂和耗时的计算可以提高效率
+            方法没有缓存
+        */
+       
+        var app=new Vue({
+            el:'#app',
+            data:{
+                msg:'red'
+            },
+            methods:{
+                reversedStri:function(){
+                    console.log('methods');//打印了两次次
+                    
+                    return this.msg.split('').reverse().join('');
+                }
+            },
+            computed: {
+                reversedMessage:function(){
+                    console.log('computed');//只打印了一次
+                    
+                    return this.msg.split('').reverse().join('');
+                }
+            },
+        })
+    </script>
+</body>
+</html>
